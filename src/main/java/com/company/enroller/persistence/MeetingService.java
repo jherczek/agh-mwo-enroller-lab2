@@ -1,10 +1,12 @@
 package com.company.enroller.persistence;
 
 import com.company.enroller.model.Meeting;
+import com.company.enroller.model.Participant;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 
+import javax.net.ssl.HandshakeCompletedEvent;
 import java.util.Collection;
 
 @Component("meetingService")
@@ -22,4 +24,8 @@ public class MeetingService {
 		return query.list();
 	}
 
+
+	public Meeting findByID(long id) {
+		return session.get(Meeting.class, id);
+	}
 }
